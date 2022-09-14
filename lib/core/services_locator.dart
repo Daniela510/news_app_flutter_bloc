@@ -3,11 +3,13 @@ import 'package:clean_architecture/features/show_news/data/data_soruces/fetch_fr
 import 'package:clean_architecture/features/show_news/data/repositories/fetch_repo_impl.dart';
 import 'package:clean_architecture/features/show_news/domain/repositories/fetch_repo_contract.dart';
 import 'package:clean_architecture/features/show_news/domain/usecases/fetch_news.dart';
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt serviceLocator = GetIt.instance;
 
 void setUpServices() {
+  serviceLocator.registerSingleton<Dio>(Dio());
   serviceLocator.registerSingleton<ApiService>(ApiServiceImpl());
   serviceLocator.registerSingleton<FetchFromRemoteDS>(FetchFromRemoteDSImpl());
   serviceLocator.registerSingleton<FetchRepo>(FetchRepoImpl());

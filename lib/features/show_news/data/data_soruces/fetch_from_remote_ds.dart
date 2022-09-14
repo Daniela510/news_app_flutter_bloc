@@ -19,10 +19,10 @@ class FetchFromRemoteDSImpl implements FetchFromRemoteDS {
   Future<List<NewsInfoModel>> fetchNews(String? searchText) async {
     try {
       Map<String, dynamic> data = await apiService.getData(
-          searchText != null ? Strings.apiEverything : Strings.apiTop, {
+          (searchText != null ? Strings.apiEverything : Strings.apiTop), {
         'apiKey': Strings.API_key,
         if (searchText == null) 'country': 'us',
-        if (searchText == null) 'q': searchText,
+        if (searchText != null) 'q': searchText,
       });
 
       List list = data['articles'];
@@ -42,6 +42,7 @@ class FetchFromRemoteDSImpl implements FetchFromRemoteDS {
 
       return news;
     } catch (e) {
+      print(e);
       throw FetchException(message: 'Failed to get data');
     }
   }
