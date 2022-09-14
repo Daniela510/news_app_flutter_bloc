@@ -1,10 +1,11 @@
 import 'package:bloc/bloc.dart';
+import 'package:meta/meta.dart';
+import 'package:dartz/dartz.dart';
+
 import 'package:clean_architecture/core/failures_successes/failures.dart';
 import 'package:clean_architecture/core/services_locator.dart';
 import 'package:clean_architecture/features/show_news/domain/entities/news_info.dart';
 import 'package:clean_architecture/features/show_news/domain/usecases/fetch_news.dart';
-import 'package:dartz/dartz.dart';
-import 'package:meta/meta.dart';
 
 part 'news_state.dart';
 

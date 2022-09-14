@@ -1,7 +1,6 @@
-import 'dart:convert';
-import 'package:clean_architecture/core/services_locator.dart';
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
+
+import 'package:clean_architecture/core/services_locator.dart';
 
 abstract class ApiService {
   Future<Map<String, dynamic>> getData(
